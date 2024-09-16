@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/pageManager.js" defer></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="btsPageStyle.css">
+</head>
+
+<body>
+    <main>
+        <div id="intro-page-demarrage">
+
+        </div>
+        <div id="circle"></div>
+        <div class="e4-container">
+            <a href="#" class="btn">
+                <div class="dots-container">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <span>E4</span>
+            </a>
+            <!-- <h1>E4</h1> -->
+        </div>
+        <div class="waves-container">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,0,0,0.7)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,0,0,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,0,0,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#000" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="e5-container">
+            <a href="#" class="btn">
+                <div class="dots-container">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <span>E5</span>
+            </a>
+            <!-- <h1>E5</h1> -->
+        </div>
+    </main>
+    <script>
+
+        const circle = document.getElementById('circle');
+        let mouseX = 0, mouseY = 0;
+        let circleX = 0, circleY = 0;
+        const delay = 0.2;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        });
+
+        function animate() {
+            circleX += (mouseX - circleX) * delay;
+            circleY += (mouseY - circleY) * delay;
+
+            circle.style.transform = `translate(${circleX - 20}px, ${circleY - 20}px)`; // -25 pour centrer le cercle
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../img/4158127.png">
+  <!-- Pages Links -->
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="ijo.js"></script> -->
+  <script src="../js/pageManager.js" defer></script>
+  <script src="../js/threeBackground.js" defer></script>
+  <script src="../js/malice.js" defer></script>
+  <script src="../js/script.js" defer></script>
+
+  <!-- Bibliotheques -->
+  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://github.com/mrdoob/three.js/blob/master/src/constants.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+
+  <title>Porfolio Three JS</title>
+</head>
+
+<body>
+  <main>
+    <div id="intro-page-demarrage">
+      <!-- Ici pour le fondu Noir - Transition avec l'autre page (L'illusion est totale) -->
+      <!-- Page dédié, gg pour le gain de perf -->
+      <!-- <div class="intro-page-item">
+        <h1> Flavien CAMPEAUX </h1>
+        <p onclick="introPageDemarrage()"><span> Découvrir </span></p>
+      </div> -->
+    </div>
+    <div id="acc-container">
+      <!-- Navbar et Score btn la dedans -->
+      <div class="navbar-container">
+        <div class="navbar"> <!-- NavBar Haut Fixed -->
+          <ul>
+            <li>
+              <div class=units onclick="accPage()">
+                <div>Accueil</div>
+                <div>Accueil</div>
+              </div>
+            </li>
+            <li>
+              <div class=units onclick="profilPage()">
+                <div class="navBarText">Profil</div>
+                <div class="navBarTextSub">Profil</div>
+              </div>
+            </li>
+            <li>
+              <div class=units onclick="projetPage()">
+                <div class="navBarText">Projet</div>
+                <div class="navBarTextSub">Projet</div>
+              </div>
+            </li>
+            <!-- <li>
+              <div class=units onclick="entreprisePage()">
+                <div>Entreprise</div>
+                <div>Entreprise</div>
+              </div>
+            </li> -->
+            <li>
+              <div class=units onclick="certifPage()">
+                <div class="navBarText">Certification</div>
+                <div class="navBarTextSub">Certification</div>
+              </div>
+            </li>
+            <li>
+              <div class=units onclick="btsPage()">
+                <div class="navBarText">BTS</div>
+                <div class="navBarTextSub">BTS</div>
+              </div>
+            </li>
+            <!-- <li>
+              <div class=units onclick="veillePage()">
+                <div>Veille</div>
+                <div>Veille</div>
+              </div>
+            </li> -->
+            <li>
+              <div class=units onclick="couleurPage()">
+                <div class="navBarText">Couleurs</div>
+                <div class="navBarTextSub">Couleurs</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="btn-container"> <!-- Theme btn Bas Gauche -->
+        <button id="button1">
+          <div class=units>
+            <div>Theme Classique</div>
+            <div>Theme Classique</div>
+          </div>
+        </button>
+        <button id="button3">
+          <div class=units>
+            <div>Theme Aleatoire</div>
+            <div>Theme Aleatoire</div>
+          </div>
+        </button>
+
+        <div id="btnM-container"> <!-- Contact btn -->
+          <button> Contact </button>
+        </div>
+
+        <div id="score"></div>
+      </div>
+
+    </div>
+
+    <div class="profil-container" id="profilContainer"> <!-- Curriculum Vitae la dedans -->
+      <div class="cv-wrapper" id="profilWrapper">
+
+        <div class="cv-pack formation">
+          <p class="group-title">Formations</p>
+          <div class="cv-group">
+            <p class="date">2023 - 2025</p>
+            <p class="litle-title">Institut F2I, Vincenne (94)</p>
+            <p class="content">BTS SIO - SLAM</p>
+          </div>
+          <div class="cv-group">
+            <p class="date">2020 - 2023</p>
+            <p class="litle-title">Lycée Teilhard de Chardin, Saint-Maur-des-Fossés (94)</p>
+            <p class="content">Baccalauréat Général Spécialité Mathématiques et NSI</p>
+          </div>
+          <div class="cv-group">
+            <p class="date">2015 - 2020</p>
+            <p class="litle-title">Collège Saint Thomas de Villeneuve, Bry-Sur-Marne (94)</p>
+            <p class="content">Brevet des Collèges Mention Bien</p>
+          </div>
+        </div>
+
+        <div class="cv-pack experience">
+          <p class="group-title">Experiences</p>
+          <div class="cv-group">
+            <p class="date">2023-2025</p>
+            <p class="litle-title">Prodware - Prodware France - Paris (75)</p>
+            <p class="content">Technicien Developpeur Applicatif</p>
+          </div>
+          <div class="cv-group">
+            <p class="date">Decembre 2019</p>
+            <p class="litle-title">Pharmacie Well & Well - Noisy Le Grand (93)</p>
+            <p class="content">Stage decouverte</p>
+          </div>
+        </div>
+
+        <div class="cv-pack competence">
+          <p class="group-title">Competences</p>
+          <div class="skill">
+            <p>Francais</p>
+            <div class="progress">
+              <div class="progress-value-francais"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <p>Anglais</p>
+            <div class="progress">
+              <div class="progress-value-anglais"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <p>Python</p>
+            <div class="progress">
+              <div class="progress-value-python"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <p>GDScript</p>
+            <div class="progress">
+              <div class="progress-value-python"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <p>Html 5</p>
+            <div class="progress">
+              <div class="progress-value-html"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <p>Css 3</p>
+            <div class="progress">
+              <div class="progress-value-css"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <p>JavaScript</p>
+            <div class="progress">
+              <div class="progress-value-js"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <p>Php</p>
+            <div class="progress">
+              <div class="progress-value-php"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <p>SQL</p>
+            <div class="progress">
+              <div class="progress-value-sql"></div>
+            </div>
+          </div>
+          <!-- Fut un temps il y avait les 3 C, mais par soucis de place je l'ai ai degagé -->
+        </div>
+
+        <div class="cv-pack extrascolaire">
+          <p class="group-title">ExtraScolaire</p>
+          <div class="cv-group">
+            <p class="date">Depuis 2011</p>
+            <p class="litle-title">Taekwondo/Taekwonkido - Arts Martiaux Coréen</p>
+            <p class="content">Ceinture noire 2e Dan</p>
+            <p class="content content2">Professeur pour enfants et jeunes adolescents depuis 2020</p>
+          </div>
+          <div class="cv-group">
+            <p class="date">Depuis 2024</p>
+            <p class="litle-title"> Musique </p>
+            <p class="content"> Basse electrique </p>
+          </div>
+          <div class="cv-group">
+            <p class="litle-title">Adresse Mail</p>
+            <p class="content">f.ca3@aol.com</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="projet-container" id="projetContainer"> <!-- Les Projets la dedans -->
+      <div class="projet-wrapper" id="projetWrapper">
+
+        <div class="projet-item">
+          <a href="../TempSiteLink/Portfolio Raph 19-04 16h/Index.html" target="_blank">
+            <div class="projet-title">
+              <h1>Commande de Portfolio</h1>
+            </div>
+            <div class="projet-content">
+              <p>Mars 2024</p>
+              <p>Nu Metal</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="projet-item">
+          <a href="../TempSiteLink/Portfolio Sara/index.html" target="_blank">
+            <div class="projet-title">
+              <h1>Commande de Portfolio</h1>
+            </div>
+            <div class="projet-content">
+              <p>juin 2024</p>
+              <p>Simple</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="projet-item">
+          <a href="https://thomas-kireche.fr/home.html" target="_blank">
+            <div class="projet-title">
+              <h1>Aide au developpement</h1>
+            </div>
+            <div class="projet-content">
+              <p>Janvier - Mai 2024</p>
+              <p>Aide et conseille</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="projet-item">
+          <a href="google.com" target="_blank">
+            <div class="projet-title">
+              <h1>Temp</h1>
+            </div>
+            <div class="projet-content">
+              <p>juing 2024</p>
+              <p>temp</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="certif-container" id="certifContainer"> <!-- Les Certifications la dedans -->
+      <div class="certif-wrapper" id="certifWrapper">
+
+        <p> En cours En cours En cours En cours En cours En cours En cours En coursEn cours </p>
+
+        <div class="certif-item">
+          <a href="#">
+            <img src="../img/html5_logo_blanc.png" alt="html">
+          </a>
+        </div>
+
+        <div class="certif-item">
+          <a href="#">
+            <img src="../img/css3_logo_blanc.png" alt="css">
+          </a>
+        </div>
+
+        <div class="certif-item js-class">
+          <a href="#">
+            <img src="../img/js_logo_blanc.png" alt="js">
+          </a>
+        </div>
+
+        <div class="certif-item">
+          <a href="#">
+            <img src="../img/sql_logo_blanc.png" alt="sql">
+          </a>
+        </div>
+
+        <div class="certif-item">
+          <a href="#">
+            <img src="../img/php_logo_blanc.png" alt="php">
+          </a>
+        </div>
+
+        <div class="certif-item">
+          <a href="#">
+            <img src="../img/python_logo_blanc.png" alt="python">
+          </a>
+        </div>
+
+        <div class="certif-item">
+          <a href="#">
+            <img src="../img/c_logo_blanc.png" alt="c">
+          </a>
+        </div>
+
+        <div class="certif-item">
+          <a href="#">
+            <img src="../img/c++_logo_blanc.png" alt="cpp">
+          </a>
+        </div>
+
+        <div class="certif-item">
+          <a href="#">
+            <img src="../img/c#_logo_blanc.png" alt="cs">
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bts-container" id="btsContainer">
+      <div class="bts-wrapper" id="btsWrapper">
+        <div class="disclaimer">
+          <h1>Note :</h1>
+          <p> Dans le cadre de mes études, certaines pages supplémentaires sont obligatoires pour compléter ce
+            portfolio.
+            Afin de préserver la cohérence et l'esthétisme de l'ensemble, j'ai choisi de regrouper ces pages dans une
+            section dédiée. </p>
+        </div>
+        <div class="link">
+          <a href="BtsAccPage.htm"><span>s'y rendre</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="entreprise-container" id="entrepriseContainer">
+      <div class="entreprise-wrapper" id="entrepriseWrapper">
+        <div class="entreprise-lil-wrapper">
+          <Div class="entreprise-title">
+            <p> </p>
+          </Div>
+          <div class="entreprise-texte entreprise-premier-texte">
+            <p class="entreprise-texte-title"> Mon Entreprise d'Alternance : PRODWARE </p>
+            <p class="entreprise-texte-content"> Prodware est une entreprise offrant des solutions de gestion pour les
+              entreprises, basées sur les technologies Microsoft, Sage, etc. Elle opère dans plusieurs pays et secteurs,
+              et propose des services d'édition, d'intégration et d'hébergement de logiciels pour optimiser les
+              processus métier, la gestion de la relation client et la gestion financière. </p>
+          </div>
+          <div class="entreprise-texte entreprise-deuxieme-texte">
+            <p class="entreprise-texte-title"> Mon role : Technicien Support Applicatif </p>
+            <p class="entreprise-texte-litle-title"> Mes Missions : </p>
+            <a href="../img/glpi.webp" target="_blank">
+              <p class="entreprise-texte-content"> 1 - Utilisation de GLPI dans de cadre du support (administation des
+                ticket - qualification des ticket par ordre d'importance/urgence - resolution des incidents) </p>
+            </a>
+            <a href="../img/profilNav.webp" target="_blank">
+              <p class="entreprise-texte-content"> 2 - Configuration de profil dans l'ERP (PGI - Progiciel de gestion
+                integré)</p>
+            </a>
+            <p class="entreprise-texte-content"> 3 - Assistance utilisateur (principalement dans un erp et les outils
+              lié a l'erp (outlook ect)) </p>
+            <p class="entreprise-texte-content"> 4 - Création de formulaire utilisateur </p>
+            <p class="entreprise-texte-content"> 5 - Maintenance technique </p>
+            <p class="entreprise-texte-content"> 6 - Creation de rapport de données (export) </p>
+            <a href="../img/ad.webp" target="_blank">
+              <p class="entreprise-texte-content"> 7 - Attribution de groupe dans un Active Directory (AD) </p>
+            </a>
+            <p class="entreprise-texte-content"> 8 - Compréhension du flux de vente (devis - commande - facture -
+              contract) </p>
+            <a href="../img/devisNav.webp" target="_blank">
+              <p class="entreprise-texte-content"> 9 - Accompagnement des collaborateurs dans le processuce de vente
+              </p>
+            </a>
+            <a href="../img/doc.webp" target="_blank">
+              <p class="entreprise-texte-content"> 10 - Creation de documentations </p>
+            </a>
+            <p class="entreprise-texte-litle-title"> Mon rôle au sein de Prodware est d'assurer une assistance interne
+              lié a l'ERP, en garantissant la continuité des opérations et en aidant les collaborateurs à résoudre
+              rapidement leurs problèmes informatiques </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="veille-container" id="veilleContainer"> <!-- La Veille la dedans -->
+      <div class="veille-wrapper" id="veilleWrapper">
+        <div class="veille-lil-wrapper">
+          <Div class="veille-title">
+            <p> L'éco-conception des services numériques : enjeux, bonnes pratiques et perspectives </p>
+          </Div>
+          <div class="veille-texte veille-premier-texte">
+            <p class="veille-texte-title"> Enjeux de l'éco-conception des services numériques : </p>
+            <p class="veille-texte-content">
+              L'éco-conception vise à réduire l'impact environnemental des TIC tout au long de leur cycle de vie. C'est
+              un enjeu majeur face à la croissance rapide du secteur du numérique.
+            </p>
+          </div>
+          <div class="veille-texte veille-deuxieme-texte">
+            <p class="veille-texte-title"> Bonnes pratiques d'éco-conception : </p>
+            <p class="veille-texte-content"> - Conception éco-responsable : privilégier des architectures logicielles
+              peu consommatrices d'énergie et de ressources. </p>
+            <p class="veille-texte-content"> - Développement durable : choisir des <span>langages de
+                programmation</span>, des <span>frameworks et des bibliothèques</span> éco-responsables. </p>
+            <p class="veille-texte-content"> - Expérience utilisateur et éco-conception : encourager des comportements
+              éco-responsables via <span>l'interface utilisateur</span>. </p>
+            <p class="veille-texte-content"> - Tests et optimisation : mesurer et optimiser la performance
+              environnementale des services numériques avec des <span>outils et méthodes adaptés</span>. </p>
+
+          </div>
+          <div class="veille-texte veille-troisieme-texte">
+            <p class="veille-texte-title"> Perspectives et défis de l'éco-conception des services numériques : </p>
+            <p class="veille-texte-content"> - Sensibilisation et formation :
+              <!--<a href="https://institutnr.org/">-->sensibiliser et former<!--</a>--> les professionnels du numérique
+              à l'éco-conception.
+            </p>
+            <p class="veille-texte-content"> - Innovation et recherche en éco-conception : développer des solutions
+              d'éco-conception plus performantes et accessibles grâce à la recherche et l'innovation. </p>
+          </div>
+
+          <div class="veille-conclusion">
+            <p class="veille-texte-title"> En conclusion </p>
+            <p class="veille-texte-content"> l'éco-conception des services numériques est un enjeu majeur pour réduire
+              l'impact environnemental du secteur du numérique. L'adoption de bonnes pratiques d'éco-conception par les
+              acteurs du numérique est donc essentielle. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="couleur-container" id="couleurContainer">
+      <div class="couleur-wrapper" id="couleurWrapper">
+
+        <div class="couleur-items">
+          <label for="fogColor"> Couleur du Brouillard </label>
+          <input type="color" id="fogColor" name="fogColor">
+        </div>
+
+        <div class="couleur-items">
+          <label for="buildingsColor"> Couleur des Batiments </label>
+          <input type="color" id="buildingsColor" name="buildingsColor">
+        </div>
+
+        <div class="couleur-items">
+          <label for="buildingsLineColor"> Couleur des Lignes des Batiments </label>
+          <input type="color" id="buildingsLineColor" name="buildingsLineColor">
+        </div>
+
+        <div class="couleur-items">
+          <label for="floorColor"> Couleur du Sol </label>
+          <input type="color" id="floorColor" name="floorColor">
+        </div>
+
+        <div class="couleur-items">
+          <label for="floorLinesColor"> Couleur des Lignes du Sol </label>
+          <input type="color" id="floorLinesColor" name="floorLinesColor">
+        </div>
+
+        <div class="couleur-items">
+          <label for="particulePointsColor"> Couleur des Particules 1 </label>
+          <input type="color" id="particulePointsColor" name="particulePointsColor">
+        </div>
+
+        <div class="couleur-items">
+          <label for="particuleLinesColor"> Couleurs des Particules 2 </label>
+          <input type="color" id="particuleLinesColor" name="particuleLinesColor">
+        </div>
+
+        <div class="couleur-items">
+          <label for="lightColor"> Couleur de la Lumiere </label>
+          <input type="color" id="lightColor" name="lightColor">
+        </div>
+
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
